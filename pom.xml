@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.alloy4cloud</groupId>
+    <artifactId>alloy-cloud-dependencies-parent</artifactId>
+    <version>Hoxton.SR6</version>
+    <packaging>pom</packaging>
+
+    <name>alloy-cloud-dependencies-parent</name>
+    <description>alloy cloud parent</description>
+    <licenses>
+        <license>
+            <name>The ApacheSoftware License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <spring-boot.version>2.3.2.RELEASE</spring-boot.version>
+        <spring-cloud.version>${project.version}</spring-cloud.version>
+        <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <!-- Source -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+            <!--<distributionManagement>
+                <snapshotRepository>
+                    <id>sonatype</id>
+                    <url>
+                        https://oss.sonatype.org/content/repositories/snapshots/
+                    </url>
+                </snapshotRepository>
+                <repository>
+                    <id>sonatype</id>
+                    <url>
+                        https://oss.sonatype.org/service/local/staging/deploy/maven2/
+                    </url>
+                </repository>
+            </distributionManagement>-->
+        </profile>
+    </profiles>
+</project>
